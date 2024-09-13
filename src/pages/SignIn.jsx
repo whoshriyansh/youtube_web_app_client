@@ -85,12 +85,22 @@ const SignIn = () => {
     }
   };
 
-  //TODO: REGISTER FUNCTIONALITY
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    dispatch(loginStart());
+    try {
+      const res = await api.post("/auth/signup", { name, email, password });
+      dispatch(loginSuccess(res.data));
+      navigate("/");
+    } catch (err) {
+      dispatch(loginFailure());
+    }
+  };
 
   return (
     <Container>
       <Wrapper>
-        <Title>Sign in</Title>
+        <Title>What's on Mind</Title>
         <SubTitle>to continue to Coo-Tube</SubTitle>
         <Input
           placeholder="username"
@@ -114,7 +124,7 @@ const SignIn = () => {
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button>Sign up</Button>
+        <Button onClick={handleRegister}>Sign up</Button>
       </Wrapper>
       <More>
         English(USA)

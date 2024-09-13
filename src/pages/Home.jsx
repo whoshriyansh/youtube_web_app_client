@@ -14,9 +14,9 @@ const Home = ({ type }) => {
   useEffect(() => {
     const fetchVideos = async () => {
       const res = await api.get(`/videos/${type}`);
+      fetchVideos();
       setVideos(res.data);
     };
-    fetchVideos();
   }, [type]);
 
   return (
