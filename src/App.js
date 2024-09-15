@@ -42,7 +42,7 @@ function App() {
                   <Route path="search" element={<Search />} />
                   <Route
                     path="signin"
-                    element={currentUser ? <Home /> : <SignIn />}
+                    element={currentUser ? <Home type="random" /> : <SignIn />}
                   />
                   <Route path="video">
                     <Route path=":id" element={<Video />} />

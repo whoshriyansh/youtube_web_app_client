@@ -12,7 +12,7 @@ const Recommendation = ({ tags }) => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await api.get(`/videos/tags?tags=${tags}`);
+      const res = await api.get(`/api/videos/tags?tags=${tags}`);
       setVideos(res.data);
     };
     fetchVideos();

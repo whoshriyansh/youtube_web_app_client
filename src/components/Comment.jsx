@@ -41,7 +41,7 @@ const Comment = ({ comment }) => {
 
   useEffect(() => {
     const fetchComment = async () => {
-      const res = await api.get(`/users/find/${comment.userId}`);
+      const res = await api.get(`/api/users/find/${comment.userId}`);
       setChannel(res.data);
     };
     fetchComment();
