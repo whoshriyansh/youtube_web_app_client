@@ -1,0 +1,16 @@
+# Node modules (do not include in the Docker image, will be installed in the image)
+node_modules
+
+# Build output
+build
+
+# Environment files
+.env
+.env.*.local
+
+# Logs
+*.log
+
+# Git files
+.git
+.gitignore
