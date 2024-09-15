@@ -13,10 +13,15 @@ const Home = ({ type }) => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await api.get(`/videos/${type}`);
-      fetchVideos();
-      setVideos(res.data);
+      try {
+        const res = await api.get(`/videos/${type}`);
+        setVideos(res.data);
+      } catch (error) {
+        console.error("Error fetching videos:", error);
+      }
     };
+
+    fetchVideos();
   }, [type]);
 
   return (
